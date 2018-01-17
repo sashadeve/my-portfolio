@@ -5,11 +5,11 @@ import mimetypes
 
 s3 = boto3.resource('s3')
 
-portfolio_bucket = s3.Bucket('portfolio.dilledalle.com')
-build_bucket = s3.Bucket('portfoliobuild.dilledalle.com')
+portfolio_bucket = s3.Bucket('portfolio.juhafagerstedt.com')
+build_bucket = s3.Bucket('portfolio.juhafagerstedt.com.build')
 
 portfolio_zip = BytesIO()
-build_bucket.download_fileobj('portfoliobuilddilledalle.zip', portfolio_zip)
+build_bucket.download_fileobj('portfoliobuild.zip', portfolio_zip)
 
 with zipfile.ZipFile(portfolio_zip) as myzip:
     for nm in myzip.namelist():
